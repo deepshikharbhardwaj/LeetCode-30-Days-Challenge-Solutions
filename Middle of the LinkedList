@@ -1,0 +1,12 @@
+Algorithm Explained : https://www.youtube.com/watch?v=fyW1Tq-mdhs&list=PLzsSZcqdlUAPnRCe5ZMLqYF9hLy6NOzmw&index=9
+
+class Solution {
+    public ListNode middleNode(ListNode head) {
+        ListNode s = head, f = head;
+        while (f != null && f.next != null) {
+            s = s.next;
+            f = f.next.next;
+        }
+        return s;
+    }
+}

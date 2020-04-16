@@ -1,0 +1,22 @@
+Algorithm Explained : https://www.youtube.com/watch?v=KpDRpHxKfR8&list=PLzsSZcqdlUAPnRCe5ZMLqYF9hLy6NOzmw&index=12
+
+class Solution
+{
+    public int diameterOfBinaryTree(TreeNode root)
+    {
+        if (root == null) return 0;
+        int FL = depth(root.left);
+        int FR = depth(root.right);
+        int LD = diameterOfBinaryTree(root.left);
+        int RD = diameterOfBinaryTree(root.right);
+        return   Math.max(FL+FR,Math.max(LD,RD));
+    }    
+    
+    public int depth(TreeNode node) 
+    {
+        if (node == null) return 0;
+        int L    = depth(node.left);
+        int R    = depth(node.right);
+        return Math.max(L+1,R+1);
+    }
+}
